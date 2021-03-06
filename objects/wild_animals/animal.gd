@@ -8,7 +8,7 @@ export var walk_speed = 40
 export var scare_radius = 50
 export var scare_time = 2
 
-var tags_list = []
+export var tags_list = ['animal', 'npc']
 var run_list = []
 var run_from_all = false
 

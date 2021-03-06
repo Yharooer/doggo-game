@@ -9,7 +9,8 @@ enum Direction {UP, DOWN, LEFT, RIGHT}
 var last_direction = Direction.DOWN
 var last_moving = false
 
-var tags_list = ['player', 'human']
+export var tags_list = ['player', 'human']
+var ray_cast
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +21,12 @@ func _ready():
 	var detection_area = Area2D.new()
 	var detect_collision = CollisionShape2D.new()
 	var circleshape2 = CircleShape2D.new()
+	ray_cast = RayCast2D.new()
+	ray_cast.set_enabled(true)
+	ray_cast.set_collide_with_bodies(false)
+	ray_cast.set_collide_with_areas(true)
+	ray_cast.add_exception(detection_area)
+	add_child(ray_cast)
 	circleshape2.radius = 1
 	detect_collision.shape = circleshape2
 	detection_area.add_child(detect_collision)
@@ -52,7 +59,21 @@ func _process(delta):
 	
 	var xness = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	var yness = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
-	
+	if xness != 0 and yness != 0:
+		ray_cast.set_cast_to(Vector2(xness * 20, yness * 20))
+	if ray_cast.is_colliding():
+		var collider = ray_cast.get_collider()
+		if (collider.get_parent().position - position).length() < 64:
+			print("gotcha")
+			if "tags_list" in collider.get_parent():
+				var a_tag_list = collider.get_parent().tags_list
+				print(a_tag_list)
+				for t in a_tag_list:
+					print(t)
+					if t == 'npc' && Input.is_action_just_pressed("interact"):
+						print("boop")
+
+
 	var velocity = Vector2(xness, yness).normalized()
 	velocity = velocity * movement_speed
 	
