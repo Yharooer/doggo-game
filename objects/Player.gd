@@ -9,10 +9,21 @@ enum Direction {UP, DOWN, LEFT, RIGHT}
 var last_direction = Direction.DOWN
 var last_moving = false
 
+var tags_list = ['player', 'human']
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if camera_path != null:
 		camera = get_node(camera_path)
+		
+	# Create detection Area2D
+	var detection_area = Area2D.new()
+	var detect_collision = CollisionShape2D.new()
+	var circleshape2 = CircleShape2D.new()
+	circleshape2.radius = 1
+	detect_collision.shape = circleshape2
+	detection_area.add_child(detect_collision)
+	add_child(detection_area)
 
 func play_animation(moving, direction):
 	if moving == last_moving and direction == last_direction:
