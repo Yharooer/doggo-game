@@ -33,6 +33,54 @@ __meta__ = {
 "_editor_description_": ""
 }
 
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Player" parent="Objects" instance=ExtResource( 3 )]
+position = Vector2( -16.0425, 15.6363 )
+camera_path = NodePath("../../Camera2D")
+
+[node name="Sheep" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( -109.098, 14.7444 )
+
+[node name="Sheep2" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( -146.855, 10.5822 )
+
+[node name="Sheep3" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( -63.3135, 30.2041 )
+
+[node name="Sheep4" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( -130.801, -34.0131 )
+
+[node name="Dog5" parent="Objects" instance=ExtResource( 10 )]
+position = Vector2( 154.906, 122.368 )
+
+[node name="Dog4" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( -23.1777, -31.6346 )
+
+[node name="Dog3" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( -65.0973, 105.719 )
+
+[node name="Dog2" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( -186.099, 100.962 )
+
+[node name="Dog1" parent="Objects" instance=ExtResource( 7 )]
+position = Vector2( -76.0974, 157.152 )
+
+[node name="Cat5" parent="Objects" instance=ExtResource( 12 )]
+position = Vector2( 121.608, 2.25775 )
+
+[node name="Cat4" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 104.662, -53.635 )
+
+[node name="Cat3" parent="Objects" instance=ExtResource( 13 )]
+position = Vector2( -91.8544, -37.2834 )
+
+[node name="Cat2" parent="Objects" instance=ExtResource( 2 )]
+position = Vector2( -168.558, -31.9319 )
+
+[node name="Cat1" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( -237.83, 19.2039 )
+
 [node name="Foreground2" type="TileMap" parent="."]
 position = Vector2( 8, 0 )
 tile_set = ExtResource( 1 )
@@ -46,49 +94,3 @@ __meta__ = {
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.5, 0.5 )
-
-[node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -16.0425, 15.6363 )
-camera_path = NodePath("../Camera2D")
-
-[node name="Sheep" parent="." instance=ExtResource( 8 )]
-position = Vector2( -109.098, 14.7444 )
-
-[node name="Sheep2" parent="." instance=ExtResource( 8 )]
-position = Vector2( -146.855, 10.5822 )
-
-[node name="Sheep3" parent="." instance=ExtResource( 8 )]
-position = Vector2( -63.3135, 30.2041 )
-
-[node name="Sheep4" parent="." instance=ExtResource( 8 )]
-position = Vector2( -130.801, -34.0131 )
-
-[node name="Dog5" parent="." instance=ExtResource( 10 )]
-position = Vector2( 154.906, 122.368 )
-
-[node name="Dog4" parent="." instance=ExtResource( 4 )]
-position = Vector2( -23.1777, -31.6346 )
-
-[node name="Dog3" parent="." instance=ExtResource( 9 )]
-position = Vector2( -65.0973, 105.719 )
-
-[node name="Dog2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -186.099, 100.962 )
-
-[node name="Dog1" parent="." instance=ExtResource( 7 )]
-position = Vector2( -76.0974, 157.152 )
-
-[node name="Cat5" parent="." instance=ExtResource( 12 )]
-position = Vector2( 121.608, 2.25775 )
-
-[node name="Cat4" parent="." instance=ExtResource( 6 )]
-position = Vector2( 104.662, -53.635 )
-
-[node name="Cat3" parent="." instance=ExtResource( 13 )]
-position = Vector2( -91.8544, -37.2834 )
-
-[node name="Cat2" parent="." instance=ExtResource( 2 )]
-position = Vector2( -168.558, -31.9319 )
-
-[node name="Cat1" parent="." instance=ExtResource( 11 )]
-position = Vector2( -237.83, 19.2039 )
