@@ -5,15 +5,15 @@
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
-region = Rect2( 520, 144, 52, 72 )
+region = Rect2( 520, 0, 52, 72 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
-region = Rect2( 468, 144, 52, 72 )
+region = Rect2( 468, 0, 52, 72 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
-region = Rect2( 572, 144, 52, 72 )
+region = Rect2( 572, 0, 52, 72 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
@@ -41,21 +41,21 @@ region = Rect2( 572, 72, 52, 72 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 1 )
-region = Rect2( 520, 0, 52, 72 )
+region = Rect2( 520, 144, 52, 72 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 1 )
-region = Rect2( 468, 0, 52, 72 )
+region = Rect2( 468, 144, 52, 72 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 1 )
-region = Rect2( 572, 0, 52, 72 )
+region = Rect2( 572, 144, 52, 72 )
 
 [sub_resource type="SpriteFrames" id=13]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
 "loop": true,
-"name": "run_right",
+"name": "run_down",
 "speed": 10.0
 }, {
 "frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
@@ -70,7 +70,7 @@ animations = [ {
 }, {
 "frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
-"name": "run_down",
+"name": "run_right",
 "speed": 10.0
 } ]
 
@@ -83,10 +83,11 @@ tags = "cat"
 run_from = "*"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -7.68111 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 13 )
 animation = "run_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.457487, 2.33195 )
+position = Vector2( 0.457487, -5.34916 )
 shape = SubResource( 14 )

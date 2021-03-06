@@ -120,6 +120,11 @@ func flee_movement(delta):
 	idle_is_moving = false
 	idle_move_time = 1
 	
+	if running_time_left < 0:
+		var length = (running_from.global_position - global_position).length()
+		if length < scare_radius:
+			running_time_left = scare_time
+	
 func play_animation(moving, vector):
 	var ang = vector.angle()
 	var direction
@@ -169,7 +174,3 @@ func _process(delta):
 	else:
 		$AnimatedSprite.speed_scale = 2.0
 		flee_movement(delta)
-		
-	
-		
-	
