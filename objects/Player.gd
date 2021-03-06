@@ -12,13 +12,15 @@ var last_moving = false
 export var tags_list = ['player', 'human']
 var ray_cast
 
+var detection_area
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if camera_path != null:
 		camera = get_node(camera_path)
 		
 	# Create detection Area2D
-	var detection_area = Area2D.new()
+	detection_area = Area2D.new()
 	var detect_collision = CollisionShape2D.new()
 	var circleshape2 = CircleShape2D.new()
 	ray_cast = RayCast2D.new()

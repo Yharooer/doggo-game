@@ -79,8 +79,7 @@ extents = Vector2( 4.65297, 5.83837 )
 
 [node name="Dog3" type="KinematicBody2D"]
 script = ExtResource( 2 )
-tags = "cat"
-run_from = "*"
+tags = "dog"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -7.81355 )

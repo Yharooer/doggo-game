@@ -16,7 +16,7 @@ var scare_area
 var detection_area
 
 var running_from : Node2D
-var running_time_left = 0
+var running_time_left = -1
 
 var idle_move_time = 0
 var idle_is_moving = false
@@ -62,6 +62,12 @@ func on_area_enter(area : Area2D):
 	if not "tags_list" in a_parent:
 		return
 	
+	if not "detection_area" in a_parent:
+		return
+	
+	if area == detection_area:
+		return
+	
 	var a_tag_list = a_parent.tags_list
 	
 	if (not whitelist) and run_from_all and len(a_tag_list) > 0:
@@ -70,7 +76,7 @@ func on_area_enter(area : Area2D):
 	
 	var tag_match = false
 	for t in a_tag_list:
-		if tags_list.has(t):
+		if run_list.has(t):
 			tag_match = true
 			break
 			
