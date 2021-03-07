@@ -259,7 +259,7 @@ texture = ExtResource( 1 )
 position = Vector2( 0, -15.4167 )
 frames = SubResource( 49 )
 animation = "idle_down"
-frame = 4
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
