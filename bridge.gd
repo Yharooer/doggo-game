@@ -10,19 +10,16 @@ extends Area2D
 func _ready():
 	connect("area_entered", self, "on_area_enter")
 	connect("area_exited", self, "on_area_exit")
-	pass # Replace with function body.
 
 const TILEMAP = 0
 
 func on_area_enter(area):
-	print("baa")
 	print(area.get_parent().tags_list)
 	area.get_parent().set_collision_mask_bit(TILEMAP, false)
 
 
 func on_area_exit(area):
 	area.get_parent().set_collision_mask_bit(TILEMAP, true)
-	area.get_parent().set_collision_layer_bit(TILEMAP, false)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

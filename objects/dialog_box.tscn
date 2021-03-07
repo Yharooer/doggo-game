@@ -2,15 +2,15 @@
 
 [ext_resource path="res://objects/Dialog_box.gd" type="Script" id=1]
 
-[node name="Dialogue Box" type="Control"]
+[node name="Dialog Box" type="Control"]
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 4.0
-margin_right = 648.0
-margin_bottom = 148.0
+margin_left = 5.0
+margin_right = 190.0
+margin_bottom = 57.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -18,8 +18,8 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="ColorRect"]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 640.0
-margin_bottom = 144.0
+margin_right = 182.0
+margin_bottom = 52.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -27,10 +27,12 @@ __meta__ = {
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
 pause_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 8.0
+anchor_right = 0.964
+anchor_bottom = 0.929
+margin_left = 7.0
 margin_top = 8.0
+margin_right = -0.340012
+margin_bottom = -3.953
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true

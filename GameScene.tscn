@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=2]
@@ -17,7 +17,9 @@
 [ext_resource path="res://objects/special_doggos/shepard.tscn" type="PackedScene" id=15]
 [ext_resource path="res://objects/special_doggos/shiba.tscn" type="PackedScene" id=16]
 [ext_resource path="res://bridge.gd" type="Script" id=17]
-[ext_resource path="res://objects/bridge_area.tscn" type="PackedScene" id=18]
+[ext_resource path="res://objects/NPC2.tscn" type="PackedScene" id=18]
+[ext_resource path="res://objects/NPC.tscn" type="PackedScene" id=19]
+[ext_resource path="res://objects/bridge_area.tscn" type="PackedScene" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 56, 16 )
@@ -67,317 +69,199 @@ __meta__ = {
 }
 
 [node name="Player" parent="Foreground" instance=ExtResource( 2 )]
-position = Vector2( -904, -296 )
-collision_layer = 4
+position = Vector2( -17.2295, -4.64767 )
 collision_mask = 11
 camera_path = NodePath("../../Camera2D")
 
 [node name="Sheep" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -107.098, 29.4944 )
-collision_layer = 8
-collision_mask = 7
 run_from = ""
 
 [node name="Sheep2" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -151.605, 22.0822 )
-collision_layer = 8
-collision_mask = 7
 run_from = ""
 
 [node name="Sheep3" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -71.3135, 30.2041 )
-collision_layer = 8
-collision_mask = 7
 run_from = ""
 
 [node name="Dog4" parent="Foreground" instance=ExtResource( 3 )]
 position = Vector2( 87.2314, 217.525 )
-collision_layer = 8
 collision_mask = 7
 
 [node name="Dog3" parent="Foreground" instance=ExtResource( 11 )]
 position = Vector2( -28.5524, 77.433 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Dog2" parent="Foreground" instance=ExtResource( 12 )]
 position = Vector2( 180.885, 144.914 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Dog1" parent="Foreground" instance=ExtResource( 6 )]
 position = Vector2( -73.0972, 174.098 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Cat5" parent="Foreground" instance=ExtResource( 7 )]
 position = Vector2( 92.8946, 67.9615 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Cat4" parent="Foreground" instance=ExtResource( 5 )]
 position = Vector2( 103.701, -36.7755 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Cat3" parent="Foreground" instance=ExtResource( 10 )]
 position = Vector2( -5.41913, 124.86 )
-collision_layer = 8
 collision_mask = 7
 
 [node name="Cat1" parent="Foreground" instance=ExtResource( 9 )]
 position = Vector2( -245.83, 19.2039 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Husky" parent="Foreground" instance=ExtResource( 8 )]
 position = Vector2( -700.163, -306.928 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep4" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -213.081, 459.624 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep5" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -126.107, 459.271 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep6" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -239.597, 496.748 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep7" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -207.777, 509.829 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep8" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -150.502, 538.82 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep9" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -196.11, 556.852 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep10" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -77.3162, 498.869 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep11" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -11.9088, 479.423 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep12" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -52.2139, 520.436 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep13" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -177.018, 522.203 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep14" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -81.5588, 538.467 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep15" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -123.278, 535.285 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep16" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -171.715, 572.408 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep17" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -114.439, 601.399 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep18" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -160.048, 619.431 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep19" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -41.2537, 561.448 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep20" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( 24.1537, 542.002 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep21" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -22.8689, 584.429 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep22" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -106.661, 393.863 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep23" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -139.895, 407.299 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep24" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -188.332, 444.422 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep25" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -131.056, 473.413 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep26" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -176.665, 491.444 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep27" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -57.8707, 433.462 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep28" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( 7.53665, 414.016 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep29" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -49.739, 445.482 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep30" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -157.573, 456.796 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep31" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -70.5986, 456.442 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep32" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -103.833, 469.878 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep33" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -152.27, 507.001 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep34" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -99.2364, 554.73 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Sheep35" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -140.956, 564.276 )
-collision_layer = 8
-collision_mask = 7
 run_from = "dog human sheep"
 
 [node name="Sheep36" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -21.8083, 496.04 )
-collision_layer = 8
-collision_mask = 7
 run_from = "dog human sheep"
 
 [node name="Sheep37" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( 43.5991, 476.595 )
-collision_layer = 8
-collision_mask = 7
 run_from = "dog human sheep"
 
 [node name="Sheep38" parent="Foreground" instance=ExtResource( 4 )]
 position = Vector2( -13.6765, 508.061 )
-collision_layer = 8
-collision_mask = 7
 run_from = "dog human sheep"
 
 [node name="Cow" parent="Foreground" instance=ExtResource( 13 )]
 position = Vector2( -911.645, 245.947 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Horse" parent="Foreground" instance=ExtResource( 14 )]
 position = Vector2( -386.345, 436.638 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Horse2" parent="Foreground" instance=ExtResource( 14 )]
 position = Vector2( -331.687, 585.476 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Horse3" parent="Foreground" instance=ExtResource( 14 )]
 position = Vector2( -393.493, 622.055 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Horse4" parent="Foreground" instance=ExtResource( 14 )]
 position = Vector2( -367.846, 550.159 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Horse5" parent="Foreground" instance=ExtResource( 14 )]
 position = Vector2( -318.233, 458.501 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Horse6" parent="Foreground" instance=ExtResource( 14 )]
 position = Vector2( -359.016, 477.842 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Cow2" parent="Foreground" instance=ExtResource( 13 )]
 position = Vector2( -911.027, 327.166 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Cow3" parent="Foreground" instance=ExtResource( 13 )]
 position = Vector2( -679.778, 51.0824 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Cow4" parent="Foreground" instance=ExtResource( 13 )]
 position = Vector2( -705.734, 383.798 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Horse7" parent="Foreground" instance=ExtResource( 14 )]
 position = Vector2( 138.383, 520.635 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Shepard" parent="Foreground" instance=ExtResource( 15 )]
 position = Vector2( 35.3964, 628.724 )
-collision_layer = 8
 collision_mask = 7
 
 [node name="Shiba" parent="Foreground" instance=ExtResource( 16 )]
 position = Vector2( -181.793, 754.8 )
-collision_layer = 8
-collision_mask = 7
 
 [node name="Area2D" type="Area2D" parent="Foreground"]
 script = ExtResource( 17 )
@@ -386,7 +270,7 @@ script = ExtResource( 17 )
 position = Vector2( -816, -296 )
 shape = SubResource( 1 )
 
-[node name="Area2D2" parent="Foreground" instance=ExtResource( 18 )]
+[node name="Area2D2" parent="Foreground" instance=ExtResource( 20 )]
 position = Vector2( -124, 108 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Foreground/Area2D2"]
@@ -396,3 +280,9 @@ shape = SubResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.5, 0.5 )
+
+[node name="NPC" parent="." instance=ExtResource( 19 )]
+position = Vector2( 109.002, 99.3929 )
+
+[node name="NPC2" parent="." instance=ExtResource( 18 )]
+position = Vector2( -249.369, 981.056 )

@@ -5,72 +5,72 @@
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
-region = Rect2( 520, 0, 52, 72 )
+region = Rect2( 520, 72, 52, 72 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
-region = Rect2( 468, 0, 52, 72 )
+region = Rect2( 468, 72, 52, 72 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
-region = Rect2( 572, 0, 52, 72 )
+region = Rect2( 572, 72, 52, 72 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
-region = Rect2( 520, 216, 52, 72 )
+region = Rect2( 520, 0, 52, 72 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
-region = Rect2( 468, 216, 52, 72 )
+region = Rect2( 468, 0, 52, 72 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 1 )
-region = Rect2( 572, 216, 52, 72 )
+region = Rect2( 572, 0, 52, 72 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 1 )
-region = Rect2( 520, 72, 52, 72 )
+region = Rect2( 520, 144, 52, 72 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 1 )
-region = Rect2( 468, 72, 52, 72 )
+region = Rect2( 468, 144, 52, 72 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 1 )
-region = Rect2( 572, 72, 52, 72 )
+region = Rect2( 572, 144, 52, 72 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 1 )
-region = Rect2( 520, 144, 52, 72 )
+region = Rect2( 520, 216, 52, 72 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 1 )
-region = Rect2( 468, 144, 52, 72 )
+region = Rect2( 468, 216, 52, 72 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 1 )
-region = Rect2( 572, 144, 52, 72 )
+region = Rect2( 572, 216, 52, 72 )
 
 [sub_resource type="SpriteFrames" id=13]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
 "loop": true,
-"name": "run_down",
+"name": "run_left",
 "speed": 10.0
 }, {
 "frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
-"name": "run_up",
+"name": "run_down",
 "speed": 10.0
 }, {
 "frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
-"name": "run_left",
+"name": "run_right",
 "speed": 10.0
 }, {
 "frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
-"name": "run_right",
+"name": "run_up",
 "speed": 10.0
 } ]
 
@@ -78,6 +78,8 @@ animations = [ {
 extents = Vector2( 4.12324, 5.70594 )
 
 [node name="Dog4" type="KinematicBody2D"]
+collision_layer = 8
+collision_mask = 2147483655
 script = ExtResource( 2 )
 tags = "dog"
 

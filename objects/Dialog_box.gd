@@ -2,16 +2,14 @@ extends RichTextLabel
 
 #Declare member variables here. Examples:
 
-var dialog = ["Oh no i lost my [b][color=#FF8800]doggo[/color][/b]", "can u find it [color=red]plzzzzzzzzzzz[/color]", "i [shake rate=20 level=10]rly[/shake] miss my doggu"]
+var dialog = ["[shake rate=20 level=10]An error occured..[/shake]", "This property should be set by the NPC class."]
 var page = 0
-
+var player : KinematicBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_dialogue()
 	set_process_input(true)
-
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,12 +17,17 @@ func _process(delta):
 	pass
 
 func _input(event):
-	if event is InputEventMouseButton && event.is_pressed():
+	if (event is InputEventMouseButton && event.is_pressed()) or (Input.is_action_pressed("interact")):
 		if get_visible_characters() > get_total_character_count():
 			load_dialogue()
 					
 func load_dialogue():
-	if page < dialog.size() :
+	print(dialog)
+	print(player)
+	if page < dialog.size():
+		if player != null:
+			if 'paused' in player:
+				player.paused = true
 		bbcode_text = dialog[page]
 		set_visible_characters(0)
 		print("aaah")
@@ -34,5 +37,8 @@ func load_dialogue():
 		$Tween.start()
 		page+=1
 	else:
+		if player != null:
+			if 'paused' in player:
+				player.paused = false
 		get_parent().queue_free()
 
