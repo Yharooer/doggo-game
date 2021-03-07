@@ -46,6 +46,13 @@ move_right={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Bg tilemap"
+2d_physics/layer_2="Fg tilemap"
+2d_physics/layer_3="player characters"
+2d_physics/layer_4="npcs"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
