@@ -27,8 +27,6 @@ func _input(event):
 			load_dialogue()
 					
 func load_dialogue():
-	print(dialog)
-	print(player)
 	if page < dialog.size():
 		if player != null:
 			if 'paused' in player:

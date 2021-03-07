@@ -56,6 +56,27 @@ func play_animation(moving, direction):
 		end = 'up'
 		
 	$AnimatedSprite.play(start + '_' + end)
+	
+func do_mouse_movement():
+	var mouse_coords = get_viewport().get_mouse_position()
+	var player_coords = get_global_transform_with_canvas().origin
+	
+	var velocity = (mouse_coords - player_coords).normalized() * movement_speed
+	move_and_slide(velocity)
+	
+	var ang = velocity.angle()
+	var direction
+	if ang <= PI/4 and ang >= -1*PI/4:
+		direction = Direction.RIGHT
+	elif ang > PI/4 and ang <= 3*PI/4:
+		direction = Direction.DOWN
+	elif ang <= -1*PI/4 and ang >= -3*PI/4:
+		direction = Direction.UP
+	else:
+		direction = Direction.LEFT
+	
+	play_animation(true, direction)
+	
 
 func _process(delta):
 	if paused:
@@ -63,6 +84,10 @@ func _process(delta):
 	
 	if camera != null:
 		camera.position = position
+		
+	if Input.is_mouse_button_pressed(1):
+		do_mouse_movement()
+		return
 	
 	var xness = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	var yness = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))

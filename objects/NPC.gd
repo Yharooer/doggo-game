@@ -4,6 +4,8 @@ export var movement_speed = 75
 export var camera_path : NodePath
 export var interact_radius = 50
 
+var viewport_click_relative = 0.1
+
 var player
 var camera : Camera2D
 
@@ -45,6 +47,15 @@ func on_area_exit(area : Area2D):
 		if "player" in a_parent.tags_list:
 			$InteractSprite.visible = false
 			can_interact = false
+			
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == 1:
+			var npc_position = get_global_transform_with_canvas().origin
+			var clicked = (npc_position - event.position).length() < max(get_viewport().size.x, get_viewport().size.y)*viewport_click_relative
+			if clicked and can_interact:
+				talk()
+		
 
 func talk():
 	var box = DIALOG.instance()
