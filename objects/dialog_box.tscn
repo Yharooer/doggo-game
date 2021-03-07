@@ -2,10 +2,8 @@
 
 [ext_resource path="res://objects/Dialog_box.gd" type="Script" id=1]
 
-[node name="Dialog Box" type="Control"]
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Dialog Box" type="Node2D"]
+z_index = 4096
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 5.0

@@ -18,7 +18,12 @@ func _process(delta):
 
 func _input(event):
 	if (event is InputEventMouseButton && event.is_pressed()) or (Input.is_action_pressed("interact")):
-		if get_visible_characters() > get_total_character_count():
+		
+		print('poopoo')
+		
+		if get_visible_characters() >= get_total_character_count():
+			
+			print('asdfasdf')
 			load_dialogue()
 					
 func load_dialogue():

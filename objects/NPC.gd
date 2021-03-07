@@ -46,13 +46,16 @@ func on_area_exit(area : Area2D):
 			$InteractSprite.visible = false
 			can_interact = false
 
+func talk():
+	var box = DIALOG.instance()
+	box.get_node("ColorRect/RichTextLabel").dialog = text
+	box.get_node("ColorRect/RichTextLabel").player = player
+	add_child(box)
+	$InteractSprite.visible = false
+	can_interact = false
+
 func _process(delta):
 	if Input.is_action_pressed('interact') and can_interact:
-		var box = DIALOG.instance()
-		box.get_node("ColorRect/RichTextLabel").dialog = text
-		box.get_node("ColorRect/RichTextLabel").player = player
-		add_child(box)
-		$InteractSprite.visible = false
-		can_interact = false
+		talk()
 		
 	
