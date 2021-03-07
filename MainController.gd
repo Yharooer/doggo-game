@@ -24,6 +24,9 @@ var farmer_3
 var player
 var camera
 
+var prev_vx
+var prev_vy
+
 var stage = 0
 
 func _ready():
@@ -105,7 +108,25 @@ func advance():
 	
 	neighbour.talk()
 	camera.global_transform = neighbour.global_transform
+
+func set_viewport_scale():
+	var vx = get_viewport_rect().size.x
+	var vy = get_viewport_rect().size.y
 	
+	if vx == prev_vx and vy == prev_vy:
+		return
+	
+	prev_vx = vx
+	prev_vy = vy
+	var ratio = vy/vx
+	
+	if ratio > 75.0/128.0:
+		var zoom = 1 + 0.5*(ratio * 128 / 75 - 1)
+		camera.zoom.x = 0.5 / zoom
+		camera.zoom.y = 0.5 / zoom
+	else:
+		camera.zoom.x = 0.5
+		camera.zoom.y = 0.5
 
 func _process(delta):
 	var special_dog
@@ -113,10 +134,12 @@ func _process(delta):
 		special_dog = special_dog_1
 	if stage == 1:
 		special_dog = special_dog_2
-	if stage == 2:
+	if stage > 1:
 		special_dog = special_dog_3
 		
 	var dist = (special_dog.global_position - neighbour.global_position).length()
 	if dist < NEIGHBOUR_SPECIAL_DOG_TRIGGER_DISTANCE:
 		advance()
+		
+	set_viewport_scale()
 		

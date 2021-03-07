@@ -15,9 +15,16 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Doggo-game"
+config/name="Herding Doggos"
 run/main_scene="res://GameScene.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/dpi/allow_hidpi=true
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+window/name="Doggo-game"
 
 [input]
 
@@ -54,4 +61,6 @@ interact={
 
 [rendering]
 
+quality/reflections/texture_array_reflections=false
+quality/reflections/high_quality_ggx=false
 environment/default_environment="res://default_env.tres"
