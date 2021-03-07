@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=2]
@@ -19,13 +19,9 @@
 [ext_resource path="res://bridge.gd" type="Script" id=17]
 [ext_resource path="res://objects/NPC2.tscn" type="PackedScene" id=18]
 [ext_resource path="res://objects/NPC.tscn" type="PackedScene" id=19]
-[ext_resource path="res://objects/bridge_area.tscn" type="PackedScene" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 56, 16 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 44, 40 )
+extents = Vector2( 56, 12 )
 
 [node name="Scene" type="Node2D"]
 
@@ -69,7 +65,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="Foreground" instance=ExtResource( 2 )]
-position = Vector2( -17.2295, -4.64767 )
+position = Vector2( -168, -44 )
 collision_mask = 11
 camera_path = NodePath("../../Camera2D")
 
@@ -263,6 +259,12 @@ collision_mask = 7
 [node name="Shiba" parent="Foreground" instance=ExtResource( 16 )]
 position = Vector2( -181.793, 754.8 )
 
+[node name="NPC" parent="Foreground" instance=ExtResource( 19 )]
+position = Vector2( 109.002, 99.3929 )
+
+[node name="NPC2" parent="Foreground" instance=ExtResource( 18 )]
+position = Vector2( -249.369, 981.056 )
+
 [node name="Area2D" type="Area2D" parent="Foreground"]
 script = ExtResource( 17 )
 
@@ -270,19 +272,6 @@ script = ExtResource( 17 )
 position = Vector2( -816, -296 )
 shape = SubResource( 1 )
 
-[node name="Area2D2" parent="Foreground" instance=ExtResource( 20 )]
-position = Vector2( -124, 108 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Foreground/Area2D2"]
-position = Vector2( -596, -484 )
-shape = SubResource( 2 )
-
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.5, 0.5 )
-
-[node name="NPC" parent="." instance=ExtResource( 19 )]
-position = Vector2( 109.002, 99.3929 )
-
-[node name="NPC2" parent="." instance=ExtResource( 18 )]
-position = Vector2( -249.369, 981.056 )

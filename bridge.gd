@@ -5,20 +5,31 @@ extends Area2D
 # var a = 2
 # var b = "text"
 
+var size 
+const TILEMAP = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	connect("area_entered", self, "on_area_enter")
 	connect("area_exited", self, "on_area_exit")
 
-const TILEMAP = 0
 
 func on_area_enter(area):
-	print(area.get_parent().tags_list)
+	print("baa")
+	for child in area.get_children():
+		if child is CollisionShape2D:
+			if child.get_shape() is CircleShape2D:
+				if child.get_shape().radius > 13:
+					return
 	area.get_parent().set_collision_mask_bit(TILEMAP, false)
 
 
 func on_area_exit(area):
+	for child in area.get_children():
+		if child is CollisionShape2D:
+			if child.get_shape() is CircleShape2D:
+				if child.get_shape().radius > 13:
+					return
 	area.get_parent().set_collision_mask_bit(TILEMAP, true)
 
 
