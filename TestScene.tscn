@@ -19,18 +19,15 @@ tile_data = PoolIntArray( -393220, 2, 0, -393219, 2, 0, -393218, 2, 0, -393217, 
 position = Vector2( 11.1367, -49.8435 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 4.38153, -35.7373 )
+position = Vector2( -21.3706, -27.6839 )
 camera_path = NodePath("../Camera2D")
 
 [node name="Husky" parent="." instance=ExtResource( 10 )]
-position = Vector2( 22.4926, -37.8805 )
+position = Vector2( 42.907, -56.7966 )
 movement_speed = 0
 walk_speed = 0
 scare_radius = 0
 scare_time = 0
-
-[node name="Particles2D" parent="Husky" index="2"]
-visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -38,15 +35,8 @@ zoom = Vector2( 0.5, 0.5 )
 smoothing_enabled = true
 
 [node name="Shiba" parent="." instance=ExtResource( 4 )]
-position = Vector2( 14.1331, -31.8392 )
+position = Vector2( 56.9285, -46.9159 )
 movement_speed = 0
 walk_speed = 0
 scare_radius = 0
 scare_time = 0
-
-[node name="Particles2D" parent="Shiba" index="2"]
-visible = false
-
-[editable path="Husky"]
-
-[editable path="Shiba"]

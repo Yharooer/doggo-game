@@ -25,10 +25,9 @@ config/windows_native_icon="res://icon.png"
 
 [display]
 
-window/dpi/allow_hidpi=true
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
-window/name="Doggo-game"
+window/name="Herding Doggos"
 
 [input]
 
@@ -67,4 +66,5 @@ interact={
 
 quality/reflections/texture_array_reflections=false
 quality/reflections/high_quality_ggx=false
+quality/filters/use_nearest_mipmap_filter=true
 environment/default_environment="res://default_env.tres"
