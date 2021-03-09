@@ -8,6 +8,8 @@ export var walk_speed = 40
 export var scare_radius = 50
 export var scare_time = 2
 
+var TURN_RATE = PI
+
 var tags_list = []
 var run_list = []
 var run_from_all = false
@@ -15,8 +17,9 @@ var run_from_all = false
 var scare_area
 var detection_area
 
-var running_from : Node2D
+var running_from_objects = []
 var running_time_left = -1
+var last_run_direction
 
 var idle_move_time = 0
 var idle_is_moving = false
@@ -95,7 +98,7 @@ func on_area_enter(area : Area2D):
 		trigger_run_from(a_parent)
 
 func trigger_run_from(node):
-	running_from = node
+	running_from_objects.append(node)
 	running_time_left = scare_time
 
 func idle_movement(delta):
@@ -109,7 +112,7 @@ func idle_movement(delta):
 		
 		if idle_is_moving:
 			for i in range(0,5):
-				idle_moving_direction = Vector2(rand_range(0,1), rand_range(0,1)).normalized()
+				idle_moving_direction = Vector2(rand_range(-1,1), rand_range(-1,1)).normalized()
 				# If will hit a wall, don't move.
 				var will_collide = test_move(global_transform, idle_moving_direction * 1)
 				if not will_collide:
@@ -117,7 +120,7 @@ func idle_movement(delta):
 	
 	if idle_is_moving:
 		var velocity = idle_moving_direction * walk_speed
-		var will_collide = test_move(global_transform, velocity)
+		var will_collide = test_move(global_transform, velocity*delta)
 		if not will_collide:
 			move_and_slide(velocity)
 		else:
@@ -127,7 +130,29 @@ func idle_movement(delta):
 	
 func flee_movement(delta):
 	running_time_left -= delta
-	var velocity = -1*movement_speed*(running_from.global_position - global_position).normalized()
+	var closest_runfrom_vec
+	var closest
+	for ent in running_from_objects:
+		var dist = (ent.global_position - global_position).length()
+		if closest == null or dist < closest:
+			closest = dist
+			closest_runfrom_vec = (ent.global_position - global_position)
+	
+	# Stop turning around too quickly
+	var run_direction
+	if last_run_direction == null or abs(last_run_direction - closest_runfrom_vec.angle()) < TURN_RATE*delta:
+		run_direction = closest_runfrom_vec
+		last_run_direction = closest_runfrom_vec.angle()
+	elif abs(last_run_direction - closest_runfrom_vec.angle()) < PI:
+		var sgn = sign(closest_runfrom_vec.angle() - last_run_direction)
+		run_direction = Vector2(cos(last_run_direction+sgn*delta*TURN_RATE),sin(last_run_direction+sgn*delta*TURN_RATE))
+		last_run_direction = last_run_direction+sgn*delta*TURN_RATE
+	else:
+		var sgn = sign(closest_runfrom_vec.angle() - last_run_direction)
+		run_direction = Vector2(cos(last_run_direction-sgn*delta*TURN_RATE),sin(last_run_direction-sgn*delta*TURN_RATE))
+		last_run_direction = last_run_direction-sgn*delta*TURN_RATE
+	
+	var velocity = -1*movement_speed*run_direction.normalized()
 	move_and_slide(velocity)
 	play_animation(true, velocity)
 	idle_moving_direction = velocity.normalized()
@@ -135,9 +160,15 @@ func flee_movement(delta):
 	idle_move_time = 1
 	
 	if running_time_left < 0:
-		var length = (running_from.global_position - global_position).length()
-		if length < scare_radius:
+		var new_run_from = []
+		for ent in running_from_objects:
+			if (ent.global_position - global_position).length() < scare_radius:
+				new_run_from.append(ent)
+		running_from_objects = new_run_from
+		if running_from_objects.size() > 0:
 			running_time_left = scare_time
+		else:
+			last_run_direction = null
 	
 func play_animation(moving, vector):
 	var ang = vector.angle()
@@ -180,6 +211,10 @@ func play_animation(moving, vector):
 		$AnimatedSprite.play(start + '_' + end)
 		$AnimatedSprite.stop()
 		$AnimatedSprite.frame = 0
+		
+func conditional_log(s):
+	if 'husky' in tags_list:
+		print(s)
 
 func _process(delta):	
 	if not visibility_notifier.is_on_screen() and off_screen_countdown <= 0:

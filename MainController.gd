@@ -77,6 +77,9 @@ func advance_1():
 	special_dog_2.visible = true
 
 func advance_2():
+	special_dog_2.movement_speed = 0
+	special_dog_2.run_list = []
+	
 	neighbour.text = ["Thank you for finding my [b][color=#FF8800]doggo[/color][/b]", "but I have another lost [b][color=#FF8800]doggo[/color][/b]", "i [shake rate=20 level=10]rly[/shake] miss my doggu"]
 	
 	stage = 2
